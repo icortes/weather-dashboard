@@ -67,10 +67,40 @@ $(document).ready(function (){
         var todayUV = weatherData.current.uvi;
         var weatherIcon = "http://openweathermap.org/img/wn/"+ weatherData.current.weather[0].icon +"@2x.png";
 
+        //get card deck from the DOM
+        var cardDeck = document.querySelector("#card-deck").children;
+
+        
         //add data to the DOM
         $("#city").text(cityName);
         $("#today-date").text(todayDate);
         $("#today-icon").attr("src", weatherIcon);
+
+        $("#today-temp").text(todayTemp + " °F");
+        $("#today-humidity").text(todayHumidity + "%");
+        $("#today-wind").text(todayWindSpeed + " MPH");
+        $("#today-uvi").text(todayUV);
+
+        //get array of daily forecasts
+        var dailyForecastArray = weatherData.daily;
+        console.log(dailyForecastArray);
+        //for loop to set daily forecasts to each card
+        for(var i = 0; i < 5; i++){
+            //get date from array[i].dt and convert it from unix to MM/DD/YYYY
+            var dailyDate = moment.unix(dailyForecastArray[i].dt).format("MM/DD/YYYY");
+            console.log(dailyDate);
+            //gets the weather icon
+            var dailyIcon = "http://openweathermap.org/img/wn/"+ dailyForecastArray[i].weather[0].icon + "@2x.png";
+            //gets the temp and fixes it to 2 decimal points
+            var dailyTemp = dailyForecastArray[i].temp.day.toFixed(2);
+            console.log(dailyTemp);
+            //gets the humidity
+            var dailyHumidity = dailyForecastArray[i].humidity;
+
+            //add info to the cards
+            
+
+        }
     }
 
     searchBtn.on("click", getCityInfo);
