@@ -4,3 +4,12 @@
 #card-deck{
     flex-wrap: nowrap;
 }
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+}
+
+#sidebar button{
+    margin: 5px;
+}

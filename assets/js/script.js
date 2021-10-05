@@ -8,15 +8,45 @@ $(document).ready(function () {
     var sideBar = $("#sidebar");
     var searchedArray = [];
 
+    //load local searched cities to buttons when page loads
+    $(function loadButtons() {
+        var localStorageArr = JSON.parse(localStorage.getItem("searchedCities"));
+        console.log(localStorageArr);
+        //copy localStorageArr to searchedArray so searched don't get deleted on refresh
+        searchedArray = localStorageArr;
+        //if local storage is not empty
+        if (searchedArray !== null) {
+            var city = "";
+            //for loop to make button
+            for (var i = 0; i < localStorageArr.length; i++) {
+                city = localStorageArr[i];
+                //make buttons for already searched cities
+                var newBtn = $("<button>");
+                //insert city name in button
+                newBtn.text(city);
+                //give it bootstrap classes
+                newBtn.addClass("btn btn-dark");
+                //append it to the sidebar
+                newBtn.appendTo(sideBar);
+                console.log(city);
+                //add click event listener
+                newBtn.on("click", function(e){
+                    e.preventDefault();
+                    searchCityOf(city);
+                });
+            }
+        }
+        else{
+            searchedArray = [];
+        }
+    });
+
     function getCityInfo(e) {
         e.preventDefault();
 
         //get input from search bar
         var userInput = searchInput.val().trim().toUpperCase();
         console.log(userInput);
-
-        //search the city for the user
-        searchCityOf(userInput);
 
         //if statement that checks if the searched city has been searched before
         //if it hasn't been searched make button for city
@@ -26,13 +56,16 @@ $(document).ready(function () {
             newBtn.text(userInput);
             newBtn.addClass("btn btn-dark");
             newBtn.appendTo(sideBar);
-            newBtn.on("click", getCityInfo);
+            newBtn.on("click", function(e){
+                e.preventDefault();
+                 //search the city for the user
+                searchCityOf(userInput);    
+            });
 
             //add city to searched array
             searchedArray.push(userInput);
-
-             //add to local storage
-             localStorage.setItem("searchedCities", JSON.stringify(searchedArray));
+            //add to local storage
+        localStorage.setItem("searchedCities", JSON.stringify(searchedArray));
         }
 
 
