@@ -69,7 +69,7 @@ $(document).ready(function (){
 
         //get card deck from the DOM
         var cardDeck = document.querySelector("#card-deck").children;
-
+        console.log(cardDeck);
         
         //add data to the DOM
         $("#city").text(cityName);
@@ -98,7 +98,10 @@ $(document).ready(function (){
             var dailyHumidity = dailyForecastArray[i].humidity;
 
             //add info to the cards
-            
+            cardDeck[i].children[0].children[0].children[0].textContent = dailyDate;
+            cardDeck[i].children[0].children[1].children[0].setAttribute("src", dailyIcon);
+            cardDeck[i].children[0].children[2].children[0].textContent = dailyTemp + " °F";
+            cardDeck[i].children[0].children[3].children[0].textContent = dailyHumidity + "%"
 
         }
     }
