@@ -5,6 +5,7 @@ $(document).ready(function (){
     var searchBtn = $("#search-btn");
     var locationArr = [];
     var weatherData;
+    var sideBar = $("#sidebar");
 
     function getCityInfo(e){
         e.preventDefault();
@@ -12,29 +13,44 @@ $(document).ready(function (){
         //get input from search bar
         var userInput = searchInput.val().trim();
         console.log(userInput);
+        
+        //search the city for the user
+        searchCityOf(userInput);
 
-        //get geolocation from api
-        var searchURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + userInput + "&limit=3&appid=" + apiKey;
-        console.log(searchURL);
-        fetch(searchURL,{
-            cache: "reload",
-        })
-        .then(function(response){
-            console.log(response);
-            //if response is other than 'ok'
-            if(response.status !== 200){
-                console.log("Invalid Input");
-            }
-            return response.json();
-        })
-        .then(function(data){
-            console.log(data);
-            locationArr = [data[0].lat,data[0].lon];
-            console.log([locationArr]);
-            //get weather data
-            getWeather();
-        })
+        //create a button for the search
+        var newBtn = $("<button>");
+        newBtn.text(userInput.toUpperCase());
+        newBtn.addClass("btn btn-dark");
+        newBtn.appendTo(sideBar);
+        newBtn.on("click", getCityInfo);
 
+        //add city to searched array
+
+
+    }
+
+    function searchCityOf(input){
+         //get geolocation from api
+         var searchURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + input + "&limit=3&appid=" + apiKey;
+         console.log(searchURL);
+         fetch(searchURL,{
+             cache: "reload",
+         })
+         .then(function(response){
+             console.log(response);
+             //if response is other than 'ok'
+             if(response.status !== 200){
+                 console.log("Invalid Input");
+             }
+             return response.json();
+         })
+         .then(function(data){
+             console.log(data);
+             locationArr = [data[0].lat,data[0].lon];
+             console.log([locationArr]);
+             //get weather data
+             getWeather();
+         })
     }
 
     //get weather data from lat and lon
