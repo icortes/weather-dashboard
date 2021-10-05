@@ -17,8 +17,9 @@
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand"><i class="bi bi-cloud-lightning-rain"></i> Weather Dashboard</a>
       <form class="form-inline">
-        <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search For a City" aria-label="Search">
-        <button id ="search-btn"class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search For a City"
+          aria-label="Search">
+        <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </nav>
   </header>
@@ -35,7 +36,7 @@
                 Today's Forecast
               </div>
               <div class="card-body">
-                <h5 class="card-title"><a id="city"></a></h5>
+                <h3 class="card-title"><a id="city"></a> <a id="today-date"></a> <img id="today-icon"></h3>
                 <p class="card-text">Temperature: <a id="today-temp"></a></p>
                 <p class="card-text">Humidity: <a id="today-humidity"></a></p>
                 <p class="card-text">Wind Speed: <a id="today-wind"></a></p>
@@ -115,6 +116,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
   </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
   <script src="assets/js/script.js"></script>
 </body>
 

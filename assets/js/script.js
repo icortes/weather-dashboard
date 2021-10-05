@@ -4,7 +4,7 @@ $(document).ready(function (){
     var searchInput = $("#search-input");
     var searchBtn = $("#search-btn");
     var locationArr = [];
-    var weatherData = [];
+    var weatherData;
 
     function getCityInfo(e){
         e.preventDefault();
@@ -40,7 +40,7 @@ $(document).ready(function (){
     //get weather data from lat and lon
     function getWeather(){
         //create url for weather data
-        var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + locationArr[0] + "&lon=" + locationArr[1] + "&units=imperial&appid=" + apiKey;
+        var weatherURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + locationArr[0] + "&lon=" + locationArr[1] + "&units=imperial&appid=" + apiKey;
         console.log(weatherURL);
 
         //get weather data from api
@@ -53,7 +53,24 @@ $(document).ready(function (){
         .then(function(data){
             console.log(data);
             weatherData = data;
+            makeElements();
         })
+    }
+
+    function makeElements(){
+        //get data from weatherData
+        var cityName = searchInput.val().toUpperCase();
+        var todayDate = moment().format("MM/DD/YYYY");
+        var todayTemp = weatherData.current.temp;
+        var todayWindSpeed = weatherData.current.wind_speed;
+        var todayHumidity = weatherData.current.humidity;
+        var todayUV = weatherData.current.uvi;
+        var weatherIcon = "http://openweathermap.org/img/wn/"+ weatherData.current.weather[0].icon +"@2x.png";
+
+        //add data to the DOM
+        $("#city").text(cityName);
+        $("#today-date").text(todayDate);
+        $("#today-icon").attr("src", weatherIcon);
     }
 
     searchBtn.on("click", getCityInfo);
