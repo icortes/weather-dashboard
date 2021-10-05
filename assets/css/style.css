@@ -1,0 +1,6 @@
+#jumbotron{
+    width: 100%;
+}
+#card-deck{
+    flex-wrap: nowrap;
+}
