@@ -1,37 +1,20 @@
-# Work Day Scheduler
+# Weather Dashboard
 
-One paragraph of project description goes here.
+This app will give you the weather for the city that best matches your search. Just type the city you want on the top right and click search. The page will give you the temperature, humidity, wind speed, and UV index of the current day. It will also give you the forecast for the next five days. On the right side, there is a side bar that saves all your searches and will stay there even if you reload the page.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+* [Visit The Page Here](https://icortes.github.io/weather-dashboard/)
+
+![image of website](./assets/img/Screenshot.jpg)
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
+* Must have a web-browser.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development environment running.
-
-Say what the step will be:
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
+* No Installation required.
 
 ## Built With
 
@@ -41,7 +24,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Deployed Link
 
-* [See Live Site](#)
+* [See Live Site](https://icortes.github.io/weather-dashboard/)
 
 
 ## Authors
@@ -58,6 +41,7 @@ This project is licensed under the MIT License
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code, libraries, packages, or UI was used  / inspired from
-* Inspiration
-* etc
+* [OpenWeather API](https://openweathermap.org/api)
+* Bootstrap
+* JQuery
+* Moment.js

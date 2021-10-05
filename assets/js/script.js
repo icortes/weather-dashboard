@@ -56,19 +56,17 @@ $(document).ready(function () {
             newBtn.text(userInput);
             newBtn.addClass("btn btn-dark");
             newBtn.appendTo(sideBar);
-            newBtn.on("click", function(e){
-                e.preventDefault();
-                 //search the city for the user
-                searchCityOf(userInput);    
-            });
+            newBtn.on("click", searchCityOf(userInput));
 
+            
             //add city to searched array
-            searchedArray.push(userInput);
-            //add to local storage
-        localStorage.setItem("searchedCities", JSON.stringify(searchedArray));
+            searchedArray.push(userInput);   
         }
 
-
+        //search the city for the user
+        searchCityOf(userInput);    
+        //add to local storage
+        localStorage.setItem("searchedCities", JSON.stringify(searchedArray));
     }
 
     function searchCityOf(input) {
