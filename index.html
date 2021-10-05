@@ -17,8 +17,8 @@
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand"><i class="bi bi-cloud-lightning-rain"></i> Weather Dashboard</a>
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search For a City" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Search For a City" aria-label="Search">
+        <button id ="search-btn"class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form>
     </nav>
   </header>
@@ -30,11 +30,16 @@
 
           <div class="row">
 
-            <div id="jumbotron" class="jumbotron jumbotron-fluid">
-              <div class="container">
-                <h1 class="display-4">Fluid jumbotron</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
-                </p>
+            <div id="jumbotron" class="card">
+              <div class="card-header">
+                Today's Forecast
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><a id="city"></a></h5>
+                <p class="card-text">Temperature: <a id="today-temp"></a></p>
+                <p class="card-text">Humidity: <a id="today-humidity"></a></p>
+                <p class="card-text">Wind Speed: <a id="today-wind"></a></p>
+                <p class="card-text">UV Index: <a id="today-uv"></a></p>
               </div>
             </div>
 
@@ -50,63 +55,54 @@
 
             <div class="card" style="width: 16rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <h5 class="card-title"><a id="card-date"></a></h5>
+                <p class="card-text"><a id="card-icon"></a></p>
+                <p class="card-text">Temp: <a id="card-temp"></a></p>
+                <p class="card-text">Humidity: <a id="card-humidity"></a></p>
               </div>
             </div>
 
             <div class="card" style="width: 16rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <h5 class="card-title"><a id="card-date"></a></h5>
+                <p class="card-text"><a id="card-icon"></a></p>
+                <p class="card-text">Temp: <a id="card-temp"></a></p>
+                <p class="card-text">Humidity: <a id="card-humidity"></a></p>
               </div>
             </div>
 
             <div class="card" style="width: 16rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <h5 class="card-title"><a id="card-date"></a></h5>
+                <p class="card-text"><a id="card-icon"></a></p>
+                <p class="card-text">Temp: <a id="card-temp"></a></p>
+                <p class="card-text">Humidity: <a id="card-humidity"></a></p>
               </div>
             </div>
 
             <div class="card" style="width: 16rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <h5 class="card-title"><a id="card-date"></a></h5>
+                <p class="card-text"><a id="card-icon"></a></p>
+                <p class="card-text">Temp: <a id="card-temp"></a></p>
+                <p class="card-text">Humidity: <a id="card-humidity"></a></p>
               </div>
             </div>
 
             <div class="card" style="width: 16rem;">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <h5 class="card-title"><a id="card-date"></a></h5>
+                <p class="card-text"><a id="card-icon"></a></p>
+                <p class="card-text">Temp: <a id="card-temp"></a></p>
+                <p class="card-text">Humidity: <a id="card-humidity"></a></p>
               </div>
             </div>
+
 
           </div>
         </div>
 
-        <div id="sidebar" class="col col-2 border border-dark"></div>
+        <div id="sidebar" class="col col-2 border-left border-dark"></div>
 
 
       </div>
